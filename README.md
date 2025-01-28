@@ -66,10 +66,90 @@
 
 </div>
 
-## 📊 Stats
+## 🚀 Getting Started
+
+### Prerequisites
 
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api/pin/?username=yuvraj488&repo=testbench&theme=react" alt="Repo Card" />
+
+![Node.js](https://img.shields.io/badge/Node.js-v14_or_higher-green?style=for-the-badge&logo=node.js)
+![MongoDB](https://img.shields.io/badge/MongoDB-Required-green?style=for-the-badge&logo=mongodb)
+![API Key](https://img.shields.io/badge/Gemini_API_Key-Required-blue?style=for-the-badge&logo=google)
+
+</div>
+
+### Installation
+
+1. Clone the repository
+```bash
+git clone https://github.com/yourusername/testbench.git
+cd testbench
+```
+
+2. Install dependencies
+```bash
+npm install
+```
+
+3. Create a `.env` file in the root directory
+```env
+PORT=5002
+MONGODB_URI=your_mongodb_connection_string
+GEMINI_API_KEY=your_gemini_api_key
+SESSION_SECRET=your_session_secret
+```
+
+4. Start the server
+```bash
+npm start
+```
+
+The application will be available at `http://localhost:5002`
+
+## 💡 Usage
+
+### Teacher Flow
+<div align="center">
+  <table>
+    <tr>
+      <td>1️⃣ Sign up/Login as a teacher</td>
+      <td>2️⃣ Create a new test from the dashboard</td>
+      <td>3️⃣ Add questions to the test</td>
+    </tr>
+    <tr>
+      <td>4️⃣ Activate the test when ready</td>
+      <td>5️⃣ View and evaluate submissions</td>
+      <td>6️⃣ Monitor student progress</td>
+    </tr>
+  </table>
+</div>
+
+### Student Flow
+<div align="center">
+  <table>
+    <tr>
+      <td>1️⃣ Sign up/Login as a student</td>
+      <td>2️⃣ View available active tests</td>
+      <td>3️⃣ Attempt tests</td>
+    </tr>
+    <tr>
+      <td>4️⃣ Submit answers</td>
+      <td>5️⃣ View scores and feedback</td>
+      <td>6️⃣ Track performance</td>
+    </tr>
+  </table>
+</div>
+
+## 🔐 Security Features
+
+<div align="center">
+
+![Password Hashing](https://img.shields.io/badge/Password_Hashing-Crypto-red?style=for-the-badge)
+![Authentication](https://img.shields.io/badge/Authentication-Session_Based-blue?style=for-the-badge)
+![Routes](https://img.shields.io/badge/Routes-Protected-green?style=for-the-badge)
+![Cookies](https://img.shields.io/badge/Cookies-Secure-yellow?style=for-the-badge)
+![Input](https://img.shields.io/badge/Input-Validated_&_Sanitized-purple?style=for-the-badge)
+
 </div>
 
 ## 🗂️ Project Structure
@@ -97,6 +177,12 @@ TestBench/
 ├── 📄 package.json
 └── 📄 README.md
 ```
+
+## 📈 Stats
+
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api/pin/?username=yuvraj488&repo=testbench&theme=react&show_description=true&show_owner=true&description_lines=3" alt="Repo Card" />
+</div>
 
 ## 🤝 Contributing
 
