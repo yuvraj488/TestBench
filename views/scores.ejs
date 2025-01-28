@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Scores</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        table {
+            width: 60%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #573b8a;
+            color: white;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        td {
+            font-size: 13px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        h1 {
+            color: #573b8a;
+            text-align: center;
+        }
+
+        table td, table th {
+            font-size: 13px;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+    </style>
+</head>
+<body>
+    <%- include('../public/navbar.html') %>
+    <h1>Test Scores</h1>
+
+    <% if (submissions.length === 0) { %>
+        <p>No submissions found for this test.</p>
+    <% } else { %>
+        <table>
+            <thead>
+                <tr>
+                    <th>Email</th>
+                    <th>Test Code</th>
+                    <th>Questions & Answers</th>
+                    <th>Marks</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% submissions.forEach(submission => { %>
+                    <tr>
+                        <td><%= submission.email %></td>
+                        <td><%= submission.code %></td>
+                        <td>
+                            <ul>
+                                <% submission.question.forEach((question, index) => { %>
+                                    <li>
+                                        <strong>Q<%= index + 1 %>:</strong> <%= question %><br>
+                                        <strong>Answer:</strong> <%= submission.answer[index] %>
+                                    </li>
+                                <% }) %>
+                            </ul>
+                        </td>
+                        <td><%= submission.marks %></td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    <% } %>
+</body>
+</html>
+

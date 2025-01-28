@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test - <%= test.subject %> - <%= test.topic %></title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 800px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin: 20px;
+            color: #333;
+        }
+
+        h1 {
+            color: #573b8a;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .question-container {
+            margin: 20px 0;
+        }
+
+        .question {
+            margin: 15px 0;
+            text-align: left;
+        }
+
+        label {
+            font-size: 1.1rem;
+            color: #573b8a;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #573b8a;
+            border-radius: 5px;
+            outline: none;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background-color: #573b8a;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background-color: #6d44b8;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Test: <%= test.subject %> - <%= test.topic %></h1>
+
+        <form method="POST" action="/submitTest/<%= test.code %>">
+            <% questions.forEach((question, index) => { %>
+                <div class="question-container">
+                    <div class="question">
+                        <label for="question<%= index + 1 %>">Question <%= index + 1 %>: <%= question %></label>
+                        <input type="text" id="question<%= index + 1 %>" name="question<%= index + 1 %>" required placeholder="Your answer">
+                    </div>
+                </div>
+            <% }) %>
+            <button type="submit" class="btn">Submit Test</button>
+        </form>
+    </div>
+</body>
+</html>

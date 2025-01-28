@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif; /* Use the professional font */
+            background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e); /* Background gradient from login page */
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: #573b8a; /* Primary color for navbar */
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px; /* Added padding for better spacing */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Shadow for navbar */
+        }
+
+        .navbar img {
+            height: 50px; /* Adjust the logo size */
+            border-radius: 50%; /* Makes the logo circular */
+        }
+
+        .navbar a {
+            color: white; /* White text for links */
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 17px;
+            transition: all 0.3s ease; /* Smooth transition for color, background and transform */
+        }
+
+        /* Improved hover effect */
+        .navbar a:hover {
+            color: white; /* Keep text white */
+            background-color: #6d44b8; /* Smooth hover background color */
+            transform: scale(1.05); /* Slightly enlarge the link on hover */
+            border-radius: 5px; /* Slightly round the corners on hover */
+        }
+
+        .navbar a.active {
+            color: white; /* White text for active link */
+            background-color: #00bcd4; /* Active link background */
+            border-radius: 5px; /* Active link border radius */
+        }
+
+        /* Navbar links container */
+        .navbar-links {
+            display: flex;
+            gap: 10px; /* Space between links */
+        }
+
+        /* Responsive Navbar */
+        @media screen and (max-width: 600px) {
+            .navbar {
+                flex-direction: column; /* Stack items on smaller screens */
+            }
+
+            .navbar-links {
+                width: 100%; /* Full width for links */
+                display: flex;
+                flex-direction: column; /* Stack links vertically */
+            }
+
+            .navbar a {
+                width: 100%; /* Full width for link buttons */
+                text-align: left; /* Align text to the left */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar Section -->
+    <div class="navbar">
+        <!-- Logo -->
+        <img src="/logo-no-background.png" alt="Logo" />
+
+        <!-- Links -->
+        <div class="navbar-links">
+            <a href="/" >Dashboard</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </div>
+
+</body>
+</html>

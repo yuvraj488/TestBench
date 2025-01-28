@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+            color: white;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #fff;
+        }
+
+        input, textarea, select {
+            padding: 10px;
+            border: 1px solid #573b8a;
+            border-radius: 4px;
+            background-color: rgba(255, 255, 255, 0.9);
+            font-size: 14px;
+        }
+
+        .questions-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .question-group {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        button {
+            padding: 12px 20px;
+            background-color: #573b8a;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #6d44b8;
+        }
+
+        .test-info {
+            background-color: #573b8a;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .test-info p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <%- include('../public/navbar.html') %>
+    <div class="container">
+        <h1>Edit Test</h1>
+        
+        <div class="test-info">
+            <p><strong>Test Code:</strong> <%= test.code %></p>
+            <p><strong>Current Status:</strong> <%= test.status %></p>
+        </div>
+
+        <form action="/edit/<%= test.code %>" method="POST">
+            <div class="form-group">
+                <label for="subject">Subject:</label>
+                <input type="text" id="subject" name="subject" value="<%= test.subject %>" required>
+            </div>
+
+            <div class="form-group">
+                <label for="topic">Topic:</label>
+                <input type="text" id="topic" name="topic" value="<%= test.topic %>" required>
+            </div>
+
+
+            <div class="form-group">
+                <label for="status">Status:</label>
+                <select id="status" name="status" required>
+                    <option value="active" <%= test.status === 'active' ? 'selected' : '' %>>Active</option>
+                    <option value="inactive" <%= test.status === 'inactive' ? 'selected' : '' %>>Inactive</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Questions:</label>
+                <div class="questions-container">
+                    <% test.questions.forEach((question, index) => { %>
+                        <div class="question-group">
+                            <label for="question<%= index %>">Question <%= index + 1 %>:</label>
+                            <textarea 
+                                id="question<%= index %>" 
+                                name="questions[]" 
+                                required><%= question %></textarea>
+                        </div>
+                    <% }) %>
+                </div>
+            </div>
+
+            <button type="submit">Update Test</button>
+        </form>
+    </div>
+</body>
+</html>

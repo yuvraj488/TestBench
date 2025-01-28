@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1c1c1c; /* Dark background */
+            padding: 0;
+            margin: 0;
+            height: 100vh; /* Full height of viewport */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: #2e2e2e;  /* Slightly transparent white */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            max-width: 600px;
+            width: 100%; /* Full width with a max width for responsiveness */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
+            position: relative;
+        }
+
+        .container:hover {
+            transform: scale(1.02); /* Slightly scale up the form */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7); /* Increase shadow on hover */
+        }
+
+        h1 {
+            text-align: center;
+            color: #00bcd4; /* Bright accent color */
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #f0f0f0; /* Light grey for labels */
+        }
+
+        input[type="text"], input[type="number"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc; /* Bright accent for input border */
+            border-radius: 4px;
+            font-size: 16px;
+            background: #3f3f3f; /* Slightly transparent input */
+            color: white; /* Change text color to white */
+        }
+
+        input[type="text"]:hover, input[type="number"]:hover, select:hover {
+            border-color: #00bcd4; /* Change border color on hover */
+        }
+
+        .questions-container {
+            margin-top: 10px;
+        }
+
+        .question-input {
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #00bcd4; /* Bright accent button */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            display: block; /* Ensures the button takes full width of the container */
+            margin: 10px auto; /* Centers the button */
+        }
+
+        button:hover {
+            background-color: #0097a7; /* Darker accent on hover */
+        }
+
+        .back-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: transparent;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #00bcd4; /* Bright accent for back button */
+            transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+        }
+
+        .back-button:hover {
+            color: white; /* Change to white on hover */
+            transform: scale(1.1); /* Slightly enlarge on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Back Button (cross) -->
+        <button class="back-button" onclick="goBack()">&#x2715;</button> <!-- Unicode for cross symbol -->
+
+        <h1>Create Test</h1>
+        <form id="createTestForm" method="post" action="/createTest">
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" name="subject" required>
+
+            <label for="topic">Topic:</label>
+            <input type="text" id="topic" name="topic" required>
+
+            <label for="numberOfQuestions">Number of Questions:</label>
+            <input type="number" id="numberOfQuestions" name="numberOfQuestions" required min="1">
+
+            <button type="button" id="createQuestionsButton" onclick="generateQuestionInputs()">Create Question Inputs</button>
+
+            <div class="questions-container" id="questionsContainer">
+                <!-- Question inputs will be generated here -->
+            </div>
+
+            <button type="submit">Create Test</button> <!-- This button will now be centered -->
+        </form>
+    </div>
+
+    <script>
+        function generateQuestionInputs() {
+        const container = document.getElementById('questionsContainer');
+        container.innerHTML = ''; // Clear previous inputs
+
+        const numberOfQuestions = document.getElementById('numberOfQuestions').value;
+        for (let i = 1; i <= numberOfQuestions; i++) {
+            const questionInput = document.createElement('div');
+            questionInput.classList.add('question-input');
+
+            const label = document.createElement('label');
+            label.textContent = `question ${i}:`;  // Number each question
+            questionInput.appendChild(label);
+
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.name = `question${i}`;  // Dynamically set the name for each question input
+            input.id = `question${i}`;  // Dynamically set the ID for each question input
+            input.required = true;
+            questionInput.appendChild(input);
+
+            container.appendChild(questionInput);
+        }
+        // Hide the button after clicking
+        document.getElementById('createQuestionsButton').style.display = 'none';
+    }
+
+        function showButton() {
+            // Show the button if the input changes
+            document.getElementById('createQuestionsButton').style.display = 'block';
+        }
+
+        document.getElementById("createTestForm").onsubmit = function(event) {
+            const numberOfQuestions = document.getElementById('numberOfQuestions').value;
+            if (numberOfQuestions <= 0) {
+                event.preventDefault();
+                alert("Please enter a valid number of questions.");
+            }
+        }
+
+        // Function to redirect to teacherDashboard
+        function goBack() {
+            window.location.href = "/teacherDashboard"; // Change the URL as per your routing
+        }
+
+        // Add event listener to input field to show button on input change
+        const numberInput = document.getElementById('numberOfQuestions');
+        numberInput.addEventListener('input', showButton);
+    </script>
+</body>
+</html>
