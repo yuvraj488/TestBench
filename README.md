@@ -1,137 +1,123 @@
-# TestBench 📚
+<h1 align="center">TestBench 🚀</h1>
 
-TestBench is a comprehensive online assessment platform that enables teachers to create, manage, and evaluate tests using AI-powered grading through Google's Gemini API. Students can easily attempt tests and receive instant feedback on their performance.
+<p align="center">
+  <img src="https://img.shields.io/badge/nodejs-%23339933.svg?style=for-the-badge&logo=node.js&logoColor=white"/>
+  <img src="https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=white"/>
+  <img src="https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Google_Gemini-%234285F4.svg?style=for-the-badge&logo=google&logoColor=white"/>
+</p>
+
+<p align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=2196F3&center=true&width=435&lines=AI-Powered+Assessment+Platform;Create+and+Grade+Tests+Instantly;Comprehensive+Analytics;Real-time+Feedback" alt="Typing SVG" />
+</p>
+
+<p align="center">
+  <a href="#features">Features</a> •
+  <a href="#installation">Installation</a> •
+  <a href="#usage">Usage</a> •
+  <a href="#contributing">Contributing</a>
+</p>
+
+<div align="center">
+
+![GitHub repo size](https://img.shields.io/github/repo-size/yuvraj488/testbench)
+![GitHub stars](https://img.shields.io/github/stars/yuvraj488/testbench)
+![GitHub forks](https://img.shields.io/github/forks/yuvraj488/testbench)
+![GitHub issues](https://img.shields.io/github/issues/yuvraj488/testbench)
+![GitHub license](https://img.shields.io/github/license/yuvraj488/testbench)
+
+</div>
 
 ## ✨ Features
 
-### For Teachers
-- 👨‍🏫 Create custom tests with multiple questions
-- 🤖 AI-powered automatic evaluation using Gemini API
-- 📊 View detailed submission analytics
-- ✏️ Edit and update test content
-- 🔄 Activate/deactivate tests as needed
-- 📝 Review individual student submissions
+<table>
+  <tr>
+    <td>
+      <h3>For Teachers 👨‍🏫</h3>
+      <ul>
+        <li>🎯 Create custom tests</li>
+        <li>🤖 AI-powered grading</li>
+        <li>📊 Detailed analytics</li>
+        <li>✏️ Easy test management</li>
+      </ul>
+    </td>
+    <td>
+      <h3>For Students 👨‍🎓</h3>
+      <ul>
+        <li>📝 User-friendly interface</li>
+        <li>⚡ Real-time submissions</li>
+        <li>📈 Instant feedback</li>
+        <li>📱 Mobile responsive</li>
+      </ul>
+    </td>
+  </tr>
+</table>
 
-### For Students
-- 📝 Take tests with a user-friendly interface
-- ⏱️ Real-time test submission
-- 📈 View scores immediately after submission
-- 📱 Mobile-responsive design
-- 🔍 Access test history
+## 🛠️ Tech Stack
 
-## 🛠️ Technology Stack
+<div align="center">
 
-- **Frontend**: HTML, CSS, JavaScript
-- **Backend**: Node.js, Express.js
-- **Database**: MongoDB with Mongoose
-- **Authentication**: Express-session
-- **AI Integration**: Google Gemini API
-- **Security**: Crypto for password hashing
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 
-## 🚀 Getting Started
+</div>
 
-### Prerequisites
-- Node.js (v14 or higher)
-- MongoDB
-- Google Gemini API key
+## 📊 Stats
 
-### Installation
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api/pin/?username=yuvraj488&repo=testbench&theme=react" alt="Repo Card" />
+</div>
 
-1. Clone the repository
+## 🗂️ Project Structure
+
 ```bash
-git clone https://github.com/yourusername/testbench.git
-cd testbench
-```
-
-2. Install dependencies
-```bash
-npm install
-```
-
-3. Create a `.env` file in the root directory
-```env
-PORT=5002
-MONGODB_URI=your_mongodb_connection_string
-GEMINI_API_KEY=your_gemini_api_key
-SESSION_SECRET=your_session_secret
-```
-
-4. Start the server
-```bash
-npm start
-```
-
-The application will be available at `http://localhost:5002`
-
-## 💡 Usage
-
-### Teacher Flow
-1. Sign up/Login as a teacher
-2. Create a new test from the dashboard
-3. Add questions to the test
-4. Activate the test when ready
-5. View and evaluate submissions
-
-### Student Flow
-1. Sign up/Login as a student
-2. View available active tests
-3. Attempt tests
-4. Submit answers
-5. View scores and feedback
-
-## 🔐 Security Features
-
-- Password hashing using crypto
-- Session-based authentication
-- Protected routes
-- Secure cookie configuration
-- Input validation and sanitization
-
-## 📁 Project Structure
-
-```
 TestBench/
-├── models/
-│   └── models.js
-├── public/
-│   ├── css/
-│   ├── js/
-│   ├── html/
-│   │   ├── aiTest.html
-│   │   ├── createtest.html
-│   │   ├── login.html
-│   │   ├── navbar.html
-│   │   └── signup.html
-├── views/
-│   ├── teacherDashboard.ejs
-│   ├── studentDashboard.ejs
-│   ├── test.ejs
-│   ├── scores.ejs
-│   └── edittest.ejs
-├── server.js
-├── package.json
-└── README.md
+├── 📁 models/
+│   └── 📄 models.js
+├── 📁 public/
+│   ├── 📁 css/
+│   ├── 📁 js/
+│   └── 📁 html/
+│       ├── 📄 aiTest.html
+│       ├── 📄 createtest.html
+│       ├── 📄 login.html
+│       ├── 📄 navbar.html
+│       └── 📄 signup.html
+├── 📁 views/
+│   ├── 📄 teacherDashboard.ejs
+│   ├── 📄 studentDashboard.ejs
+│   ├── 📄 test.ejs
+│   ├── 📄 scores.ejs
+│   └── 📄 edittest.ejs
+├── 📄 server.js
+├── 📄 package.json
+└── 📄 README.md
 ```
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+<img src="https://contrib.rocks/image?repo=yuvraj488/testbench" />
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-## 📄 License
+## 📈 Activity
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+![Activity Graph](https://activity-graph.herokuapp.com/graph?username=yuvraj488&theme=react-dark)
 
-## ⭐ Support
+## 📝 License
 
-If you found this project helpful, please give it a ⭐️ on GitHub!
+Released under the MIT License. See `LICENSE` for more information.
 
-## 📧 Contact
+---
 
-Your Name - yuvraj03703@gmail.com
-Project Link: https://github.com/yuvraj488/testbench
+<p align="center">
+  <img src="https://profile-counter.glitch.me/yuvraj488/count.svg" alt="Visitor Count" />
+</p>
+
+<p align="center">
+  If you like this project, please consider giving it a ⭐
+</p>
