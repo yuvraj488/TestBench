@@ -82,7 +82,7 @@
 
 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/testbench.git
+git clone https://github.com/yuvraj488/testbench.git
 cd testbench
 ```
 
