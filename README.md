@@ -101,7 +101,7 @@ SESSION_SECRET=your_session_secret
 
 4. Start the server
 ```bash
-npm start
+node server.js
 ```
 
 The application will be available at `http://localhost:5002`
