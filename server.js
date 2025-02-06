@@ -23,18 +23,15 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'public')));
+const BASE_URL = process.env.BASE_URL || '/';
+app.use(BASE_URL, express.static(path.join(__dirname, 'public')));
 
 // Session configuration - Fixed secret warning
 app.use(session({
     secret: crypto.randomBytes(32).toString('hex'),
     resave: false,
     saveUninitialized: false,
-    cookie: {
-        secure: process.env.NODE_ENV === 'production',
-        httpOnly: true,
-        maxAge: 24 * 60 * 60 * 1000 // 24 hours
-    }
+
 }));
 
 // View Engine Setup
