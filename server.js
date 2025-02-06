@@ -24,7 +24,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'png')));
 
 // Session configuration - Fixed secret warning
 app.use(session({
@@ -51,11 +50,6 @@ const { User, Test, Submission } = require("./models.js");
 
 
 // Middleware Configuration
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'png')));
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
@@ -96,6 +90,9 @@ function authentication1(req, res, next) {
 }
 
 // Routes
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'login.html'));
+});
 app.get("/", authentication, (req, res) => {
     res.sendFile(path.join(__dirname, "public", "login.html"));
 });

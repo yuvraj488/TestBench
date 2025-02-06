@@ -8,6 +8,28 @@
     "express-session": "^1.18.1",
     "mongodb": "^6.12.0",
     "mongoose": "^8.9.5",
-    "multer": "^1.4.5-lts.1"
-  }
+    "multer": "^1.4.5-lts.1",
+    "body-parser": "^1.20.2",
+    "path": "^0.12.7",
+    "crypto": "^1.0.1"
+  },
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "nodemon server.js"
+  },
+  "name": "testb",
+  "description": "<h1 align=\"center\">TestBench 🚀</h1>",
+  "version": "1.0.0",
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuvraj488/TestBench.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yuvraj488/TestBench/issues"
+  },
+  "homepage": "https://github.com/yuvraj488/TestBench#readme"
 }
