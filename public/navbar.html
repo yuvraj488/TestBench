@@ -4,90 +4,184 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Navbar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body {
-            margin: 0;
-            font-family: 'Roboto', sans-serif; /* Use the professional font */
-            background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e); /* Background gradient from login page */
+        :root {
+            --bg-color: #111827;
+            --card-bg: #1f2937;
+            --primary-color: #3b82f6;
+            --primary-hover: #60a5fa;
+            --text-color: #e5e7eb;
+            --text-muted: #9ca3af;
+            --input-bg: #374151;
+            --input-border: #4b5563;
+            --input-focus: #60a5fa;
+            --border-radius: 8px;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15);
+            --nav-height: 70px;
         }
-
-        /* Navbar Styles */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            min-height: 100vh;
+        }
+        
         .navbar {
-            background-color: #573b8a; /* Primary color for navbar */
-            overflow: hidden;
+            background: linear-gradient(90deg, #1f2937 0%, #1e3a8a 100%);
+            height: var(--nav-height);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 100;
+        }
+        
+        .navbar-logo {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            padding: 10px 20px; /* Added padding for better spacing */
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Shadow for navbar */
+            gap:7px;
+        }
+        
+        .navbar-logo img {
+            height: 45px;
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .navbar-logo h1{
+            font-weight: 600;
+            font-size: 28px;
+            color: var(--text-color);
+            margin-bottom: 5px;
         }
 
-        .navbar img {
-            height: 50px; /* Adjust the logo size */
-            border-radius: 50%; /* Makes the logo circular */
+        .navbar-logo img:hover {
+            transform: scale(1.05);
         }
-
-        .navbar a {
-            color: white; /* White text for links */
-            text-align: center;
-            padding: 14px 20px;
-            text-decoration: none;
-            font-size: 17px;
-            transition: all 0.3s ease; /* Smooth transition for color, background and transform */
-        }
-
-        /* Improved hover effect */
-        .navbar a:hover {
-            color: white; /* Keep text white */
-            background-color: #6d44b8; /* Smooth hover background color */
-            transform: scale(1.05); /* Slightly enlarge the link on hover */
-            border-radius: 5px; /* Slightly round the corners on hover */
-        }
-
-        .navbar a.active {
-            color: white; /* White text for active link */
-            background-color: #00bcd4; /* Active link background */
-            border-radius: 5px; /* Active link border radius */
-        }
-
-        /* Navbar links container */
+        
         .navbar-links {
             display: flex;
-            gap: 10px; /* Space between links */
+            gap: 10px;
         }
-
-        /* Responsive Navbar */
-        @media screen and (max-width: 600px) {
+        
+        .navbar-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .navbar-links a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .navbar-links a.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .navbar-links a i {
+            font-size: 16px;
+        }
+        
+        .menu-button {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-color);
+            font-size: 24px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        
+        .menu-button:hover {
+            color: var(--primary-hover);
+        }
+        
+        @media screen and (max-width: 768px) {
             .navbar {
-                flex-direction: column; /* Stack items on smaller screens */
+                padding: 0 20px;
             }
-
+            
+            .menu-button {
+                display: block;
+            }
+            
             .navbar-links {
-                width: 100%; /* Full width for links */
-                display: flex;
-                flex-direction: column; /* Stack links vertically */
+                position: absolute;
+                top: var(--nav-height);
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                background-color: var(--card-bg);
+                box-shadow: var(--shadow);
+                padding: 20px;
+                gap: 15px;
+                transform: translateY(-200%);
+                transition: transform 0.3s ease-in-out;
+                z-index: 99;
             }
-
-            .navbar a {
-                width: 100%; /* Full width for link buttons */
-                text-align: left; /* Align text to the left */
+            
+            .navbar-links.active {
+                transform: translateY(0);
+            }
+            
+            .navbar-links a {
+                width: 100%;
             }
         }
     </style>
 </head>
 <body>
-
-    <!-- Navbar Section -->
     <div class="navbar">
-        <!-- Logo -->
-        <img src="/logo-no-background.png" alt="Logo" />
-
-        <!-- Links -->
-        <div class="navbar-links">
-            <a href="/" >Dashboard</a>
-            <a href="/logout">Logout</a>
+        <div class="navbar-logo">
+            <img src="/uploads/TestBench-Logo.png" alt="Logo" />
+            <H1>TestBench</H1>
+        </div>
+        <button class="menu-button" id="menuButton">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="navbar-links" id="navLinks">
+            <a href="/" class="active">
+                <i class="fas fa-tachometer-alt"></i> Dashboard
+            </a>
+           <% if(typeof user==="undefined" || user.role!="teacher"){%>
+            <a href="/student/scores" class="active">
+                <i class="fas fa-chart-bar"></i> My Scores
+            </a>
+            <%}%>
+            
+            <a href="/logout">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
         </div>
     </div>
 
+    <script>
+        const menuButton = document.getElementById('menuButton');
+        const navLinks = document.getElementById('navLinks');
+        
+        menuButton.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
